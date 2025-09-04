@@ -563,8 +563,8 @@ public class Main {
         String name;
         boolean isFound = false;
         while(true){
-            System.out.print("Enter the name of the employee you want to modify : ");
             input.nextLine();
+            System.out.print("Enter the name of the employee you want to modify : ");
             name = input.nextLine().trim().toLowerCase();
             if(name.matches("[a-zA-Z]+(\\s[a-zA-Z]+)*")){
                 break;

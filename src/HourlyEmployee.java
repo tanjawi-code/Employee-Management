@@ -54,7 +54,7 @@ public class HourlyEmployee extends Employee implements DisplayAble{
                         break;
                     }
                     else{
-                        System.out.println("Could not change, the number of hours cannot be less than 5.");
+                        System.out.println("Could not change, the number of hours cannot be less than 5 or equal the old one.");
                     }
                 }
                 else if(choice == 2){
