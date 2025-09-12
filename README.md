@@ -24,8 +24,6 @@ number of sold products in the company, ect).
 - [  ] Add changing the salary for base plus commission employees in the method (manageDetails).
 ---
 ## Problems I have in the program.
-- Fix the problem of searching for the employee by name to modify details.
-- Fix the problem of searching for the employee to remove the employee.
 - Find a solution of repeating when the user enter letters instead of numbers in the second input. (Explain:
 You have to enter two numbers, the first number is correct, but the second number has letters. That means you will
 enter also the first number again).

@@ -46,6 +46,9 @@ public abstract class Employee implements DisplayAble{
     employeeType getType() {
         return this.type;
     }
+    Gender getSex(){
+        return this.sex;
+    }
 
     void info() {
         System.out.println("Name : " + name + " || Gender : " + sex + " || Address : " + address + " || Type : " + type + " employee.");

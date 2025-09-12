@@ -113,9 +113,21 @@ public class EmployeeManager {
         int fix =0 , hourly =0 , commission =0 , basePlusCommission =0;
         double average = 0;
         int products =0;
+        int males = 0, females = 0;
 
         System.out.println("Name of the company : "+employees.getFirst().companyName());
         System.out.println("The number of employees : "+employees.size());
+
+        for(Employee gender : employees){
+            if(gender.getSex() == Gender.male){
+                males++;
+            }
+            else if(gender.getSex() == Gender.female){
+                females++;
+            }
+        }
+        System.out.println("The number of males : "+males);
+        System.out.println("The number of females : "+females);
 
         for (Employee employee : employees) {
             if (employee instanceof SalariedEmployee) {
@@ -207,5 +219,15 @@ public class EmployeeManager {
             default:
                 System.out.println("Something went wrong.");
         }
+    }
+
+    // Check the name if it is already in the company.
+    String checkName(String name){
+        for(Employee employee : employees){
+            if(employee.getName().equals(name)){
+                return name;
+            }
+        }
+        return "";
     }
 }

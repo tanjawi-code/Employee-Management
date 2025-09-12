@@ -114,12 +114,15 @@ public class Main {
     }
 
     // This is for setting the name of the employee. It is a part of the function (addEmployee).
-    static String addEmployeeName(int count){
+    static String addEmployeeName(int count, EmployeeManager manager){
         System.out.println("Enter the details of the employee number "+(count+1)+" : ");
         do{
             System.out.print("The name of the employee : ");
             String name = input.nextLine().toLowerCase().trim();
-            if(name.matches("[a-zA-Z]+(\\s[a-zA-Z]+)*")){
+            if(name.equals(manager.checkName(name))){
+                System.out.println("The name is already in the list.");
+            }
+            else if(name.matches("[a-zA-Z]+(\\s[a-zA-Z]+)*")){
                 return name;
             }
             else{
@@ -264,7 +267,7 @@ public class Main {
         int choose;
         do{
             Gender sex = addEmployeeGender();
-            String name = addEmployeeName(count);
+            String name = addEmployeeName(count,manager);
             int SSN = addEmployeeSSN();
             int ID = addEmployeeID();
             String address = addEmployeeAddress(name);
@@ -387,13 +390,13 @@ public class Main {
             manager.statisticsPart1(salaries);
             manager.statisticsPart2();
         }
-        System.out.println("\n");
+        System.out.println();
     }
 
     // This is for removing an employee.
     static void removeEmployee(EmployeeManager manager){
         if(!manager.employeeIsEmpty()){
-            System.out.print("Enter the employee name you want to delete : ");
+            System.out.print("Enter the employee name you want to remove : ");
             input.nextLine();
             String name = input.nextLine().trim().toLowerCase();
             boolean isFound = false;
@@ -446,11 +449,11 @@ public class Main {
                 System.out.print("Choose the way, (searching by name : 1 || searching by ID : 2) : ");
                 choice = input.nextInt();
                 if(choice == 1){
-                    System.out.println("\n");
+                    System.out.println();
                     return choice;
                 }
                 else if(choice == 2){
-                    System.out.println("\n");
+                    System.out.println();
                     return choice;
                 }
                 else{
@@ -517,13 +520,13 @@ public class Main {
                     }
                 }
                 if(!isFound){
-                    System.out.println("Could not find the employee "+ID);
+                    System.out.println("Could not find the employee ID "+ID);
                 }
                 break;
             default:
                 System.out.println("Something went wrong.");
         }
-        System.out.println("\n");
+        System.out.println();
     }
 
     // This is for showing the salary for every employee in any type.
@@ -562,8 +565,8 @@ public class Main {
         System.out.println("You can manage any type of the employee.\n");
         String name;
         boolean isFound = false;
+        input.nextLine();
         while(true){
-            input.nextLine();
             System.out.print("Enter the name of the employee you want to modify : ");
             name = input.nextLine().trim().toLowerCase();
             if(name.matches("[a-zA-Z]+(\\s[a-zA-Z]+)*")){
@@ -582,7 +585,7 @@ public class Main {
             }
         }
         if(!isFound){
-            System.out.println("The employee "+name+" is not found.\n\n");
+            System.out.println("The employee "+name+" is not found.\n");
         }
     }
 }
