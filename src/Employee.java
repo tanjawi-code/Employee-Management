@@ -50,9 +50,17 @@ public abstract class Employee implements DisplayAble{
         return this.sex;
     }
 
+    // Display the employee's details.
     void info() {
         System.out.println("Name : " + name + " || Gender : " + sex + " || Address : " + address + " || Type : " + type + " employee.");
         System.out.println("SSN : " + SSN + " || The ID : " + ID);
+    }
+
+    // Display the main employee's details. It is used with the method (displayEmployeeFile) in interface displayAble.
+    @Override
+    public String toString() {
+        return  "Name = " + name + " ||  SSN = " + SSN + " || Address = " + address + "\n" +
+                "Gender = " + sex + " || ID = " + ID + " || Employee type = " + type + "\n";
     }
 
     abstract double earning();

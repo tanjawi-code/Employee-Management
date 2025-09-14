@@ -53,6 +53,13 @@ public class CommissionEmployee extends Employee implements DisplayAble, soldPro
         System.out.println("The amount of sales : "+this.GrossSales+" || The commission rate : "+this.CommissionRate);
     }
 
+    // Saving the employees in a file.
+    @Override
+    public String displayEmployeeFile(){
+        return super.toString()+
+                "Number of sold products = " + GrossSales + " || Commission rate = " +CommissionRate+"%";
+    }
+
     // This is a function from the class Employee. Its jib to modify the data of the employee.
     @Override
     void manageDetails(){

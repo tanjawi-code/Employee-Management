@@ -46,6 +46,13 @@ public class BasePlusCommissionEmployee extends CommissionEmployee implements Di
         System.out.println("Salary : "+salary+" || The amount of sales : "+getGrossSales()+" || The commission rate  :"+getCommissionRate());
     }
 
+    // Saving the employees in a file.
+    @Override
+    public String displayEmployeeFile(){
+        return super.toString()+
+                "Salary = " + salary + " || Number of sold products = "+this.getSoldProduct()+" || Commission rate = "+this.getCommissionRate()+"%";
+    }
+
     // This is a function from the class Employee. Its jib to modify the data of the employee.
     @Override
     void manageDetails(){

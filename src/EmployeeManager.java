@@ -18,6 +18,9 @@ public class EmployeeManager {
     void getManageDetails(int index){
         employees.get(index).manageDetails();
     }
+    String employeesFile(int index){
+        return employees.get(index).displayEmployeeFile();
+    }
 
     // Saving an employee.
     void saveEmployee(Employee e){
@@ -224,7 +227,7 @@ public class EmployeeManager {
     // Check the name if it is already in the company.
     String checkName(String name){
         for(Employee employee : employees){
-            if(employee.getName().equals(name)){
+            if(employee.getName().toLowerCase().trim().equals(name)){
                 return name;
             }
         }

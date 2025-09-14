@@ -22,6 +22,7 @@ number of sold products in the company, ect).
 - [  ] Add GUI swing to the project.
 - [  ] Make things more clear and simple.
 - [  ] Add changing the salary for base plus commission employees in the method (manageDetails).
+- [  ] Searching ways : search by type of the employee, SSN, address.
 ---
 ## Problems I have in the program.
 - Find a solution of repeating when the user enter letters instead of numbers in the second input. (Explain:

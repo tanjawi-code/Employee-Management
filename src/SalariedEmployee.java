@@ -34,6 +34,13 @@ public class SalariedEmployee extends Employee implements DisplayAble{
         System.out.println("The salary : "+this.salary+" || Bonus : "+this.bonus+" || Deduction : "+this.deduction);
     }
 
+    // Saving the employees in a file.
+    @Override
+    public String displayEmployeeFile(){
+        return super.toString()+
+                "Salary = " + salary + " || Bonus : " + bonus + " || deduction : " + deduction;
+    }
+
     // This is a function from the class Employee. Its jib to modify the data of the employee.
     @Override
     void manageDetails() {

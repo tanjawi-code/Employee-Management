@@ -1,3 +1,6 @@
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 public class Main {
@@ -17,7 +20,8 @@ public class Main {
                     5 : Remove an employee.
                     6 : Calculate salaries of all types of the employees.
                     7 : Statistics.
-                    8 : Exit.""");
+                    8 : Save the employees in a file.
+                    9 : Exit.""");
             while(true){
                 try{
                     System.out.print("Choose : ");
@@ -33,9 +37,7 @@ public class Main {
             }
             System.out.println();
             switch (choose){
-                case 1 :
-                    addEmployee(manager);
-                    break;
+                case 1 : addEmployee(manager); break;
                 case 2 :
                     if(!manager.employeeIsEmpty()){
                         employeesInfo(manager);
@@ -60,9 +62,7 @@ public class Main {
                         System.out.println("There are no employees yet.\n");
                     }
                     break;
-                case 5 :
-                    removeEmployee(manager);
-                    break;
+                case 5 : removeEmployee(manager); break;
                 case 6 :
                     if(!manager.employeeIsEmpty()){
                         calculateSalaries(manager);
@@ -71,16 +71,12 @@ public class Main {
                         System.out.println("There are no employees yet.\n");
                     }
                     break;
-                case 7 :
-                    statistics(manager);
-                    break;
-                case 8 :
-                    System.out.println("You have finished the program.");
-                    break;
-                default :
-                    System.out.println("Wrong choice, try again.\n");
+                case 7 : statistics(manager); break;
+                case 8 : saveEmployeeFile(manager); break;
+                case 9 : System.out.println("You have finished the program."); break;
+                default : System.out.println("Wrong choice, try again.\n");
             }
-        } while(choose != 8);
+        } while(choose != 9);
 
         input.close();
     }
@@ -123,7 +119,7 @@ public class Main {
                 System.out.println("The name is already in the list.");
             }
             else if(name.matches("[a-zA-Z]+(\\s[a-zA-Z]+)*")){
-                return name;
+                return name.substring(0,1).toUpperCase() + name.substring(1).toLowerCase();
             }
             else{
                 System.out.println("The name cannot have numbers or symbols.");
@@ -145,7 +141,7 @@ public class Main {
              System.out.print("The address of the employee "+name+" : ");
              address = input.nextLine().trim().toLowerCase();
              if(address.matches("[a-zA-Z]+")){
-                 return address;
+                 return address.substring(0,1).toUpperCase() + address.substring(1).toLowerCase();
              }
              else{
                  System.out.println("The name cannot have symbols or numbers or space.");
@@ -403,7 +399,7 @@ public class Main {
             int index = 0;
 
             for(int x = 0 ;x<manager.employeesSize() ; x++){
-                if(name.equals(manager.getEmployeeName(x))){
+                if(name.equals(manager.getEmployeeName(x).trim().toLowerCase())){
                     System.out.println("The employee "+name+" is found, these are the details : ");
                     manager.oneEmployeeDetails(x);
                     System.out.println("The employee earns monthly : "+manager.getEmployeeSalary(x));
@@ -478,7 +474,7 @@ public class Main {
                 String name = input.nextLine().trim().toLowerCase();
                 boolean found = false;
                 for(int x = 0 ;x< manager.employeesSize() ; x++) {
-                    if (name.equals(manager.getEmployeeName(x))) {
+                    if (name.equals(manager.getEmployeeName(x).trim().toLowerCase())) {
                         System.out.println("\nThe details of the employee " + name + " : ");
                         manager.oneEmployeeDetails(x);
                         System.out.println("The employee earns : " + manager.getEmployeeSalary(x));
@@ -578,7 +574,7 @@ public class Main {
         }
 
         for(int x = 0 ; x< manager.employeesSize() ; x++){
-            if(manager.getEmployeeName(x).equals(name)){
+            if(manager.getEmployeeName(x).trim().toLowerCase().equals(name)){
                 manager.getManageDetails(x);
                 isFound = true;
                 break;
@@ -587,5 +583,29 @@ public class Main {
         if(!isFound){
             System.out.println("The employee "+name+" is not found.\n");
         }
+    }
+
+    // Saving the employees in a file.
+    static void saveEmployeeFile(EmployeeManager manager){
+        String filePath = "C:\\Users\\asus\\desktop\\employeesData.txt";
+
+        if(!manager.employeeIsEmpty()) {
+            try(FileWriter file = new FileWriter(filePath)){
+                for(int x =0 ; x< manager.employeesSize(); x++){
+                    file.write("Employee : " +(x+1) +"\n" +manager.employeesFile(x) +"\n\n");
+                }
+                System.out.println("The file has been written.");
+            }
+            catch(FileNotFoundException check){
+                System.out.println("The file location is unknown.");
+            }
+            catch (IOException check){
+                System.out.println("Could not write file.");
+            }
+        }
+        else{
+            System.out.println("There are no employees yet.");
+        }
+        System.out.println();
     }
 }
