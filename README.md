@@ -15,6 +15,7 @@ base plus commission employee). You are allowed to :
 - See statistics (number of the employees, number of every type of the employees, highest earning, lowest earning,
 number of sold products in the company, ect).
 - Check every employee earning in any type.
+- Provides saving the employees in a file when you close and using them again if you want when you open the project.
 - Provide a simple screen of dealing with the program.
 ---
 ## To-Do list.

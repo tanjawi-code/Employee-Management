@@ -49,8 +49,7 @@ public class BasePlusCommissionEmployee extends CommissionEmployee implements Di
     // Saving the employees in a file.
     @Override
     public String displayEmployeeFile(){
-        return super.toString()+
-                "Salary = " + salary + " || Number of sold products = "+this.getSoldProduct()+" || Commission rate = "+this.getCommissionRate()+"%";
+        return super.toString()+salary+","+getGrossSales()+","+getCommissionRate()+"\n";
     }
 
     // This is a function from the class Employee. Its jib to modify the data of the employee.

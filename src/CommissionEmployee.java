@@ -56,8 +56,7 @@ public class CommissionEmployee extends Employee implements DisplayAble, soldPro
     // Saving the employees in a file.
     @Override
     public String displayEmployeeFile(){
-        return super.toString()+
-                "Number of sold products = " + GrossSales + " || Commission rate = " +CommissionRate+"%";
+        return super.toString()+GrossSales+","+CommissionRate+"\n";
     }
 
     // This is a function from the class Employee. Its jib to modify the data of the employee.

@@ -20,8 +20,15 @@ public class SalariedEmployee extends Employee implements DisplayAble{
         this.deduction = other.deduction;
     }
 
+    // Setters
     void setSalary(double salary) {
         this.salary = salary;
+    }
+    void setBonus(double bonus) {
+        this.bonus = bonus;
+    }
+    void setDeduction(double deduction) {
+        this.deduction = deduction;
     }
 
     @Override
@@ -37,8 +44,7 @@ public class SalariedEmployee extends Employee implements DisplayAble{
     // Saving the employees in a file.
     @Override
     public String displayEmployeeFile(){
-        return super.toString()+
-                "Salary = " + salary + " || Bonus : " + bonus + " || deduction : " + deduction;
+        return super.toString()+salary+","+bonus+","+deduction+"\n";
     }
 
     // This is a function from the class Employee. Its jib to modify the data of the employee.

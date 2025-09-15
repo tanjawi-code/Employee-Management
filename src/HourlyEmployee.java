@@ -37,8 +37,7 @@ public class HourlyEmployee extends Employee implements DisplayAble{
     // Saving the employees in a file.
     @Override
     public String displayEmployeeFile(){
-        return super.toString()+
-                "Number of working hours = " + NumbersOfHours + " || Hourly salary = " + HourlySalary;
+        return super.toString()+NumbersOfHours+","+HourlySalary+"\n";
     }
 
     // This is a function from the class Employee. Its jib to modify the data of the employee.

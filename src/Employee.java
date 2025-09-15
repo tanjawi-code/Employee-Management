@@ -59,8 +59,7 @@ public abstract class Employee implements DisplayAble{
     // Display the main employee's details. It is used with the method (displayEmployeeFile) in interface displayAble.
     @Override
     public String toString() {
-        return  "Name = " + name + " ||  SSN = " + SSN + " || Address = " + address + "\n" +
-                "Gender = " + sex + " || ID = " + ID + " || Employee type = " + type + "\n";
+        return this.type+","+this.name+","+this.sex+","+this.address+","+this.SSN+","+this.ID+",";
     }
 
     abstract double earning();
